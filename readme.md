@@ -8,7 +8,7 @@ This repository contains a small audio-processing pipeline for:
 5. To do: evaluate on long-form PAM data (https://github.com/jackgle/open-bioacoustic-benchmarks).
 
 ---
-## Setup
+## Setup 
 
 1. `./setup.sh`
 2. Copy `config.env.example` to `config.env` and edit as necessary
