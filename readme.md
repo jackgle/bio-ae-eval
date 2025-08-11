@@ -11,6 +11,8 @@ This repository contains a small audio-processing pipeline for:
 ## Setup 
 1. `./setup.sh`
 2. Copy `config.env.example` to `config.env` and edit as necessary
+3. Download the [RFCx training dataset](https://www.kaggle.com/c/rfcx-species-audio-detection/data)
+    - Specify paths to source files and TP and FP annotation CSVs in the `config.env` file
 
 ## Run
 1. `source venv/bin/activate`

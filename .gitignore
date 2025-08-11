@@ -3,10 +3,9 @@ bacpipe/
 venv/
 config.env
 artifacts/embeddings/
-data/audio/source/
-data/audio/clips/
-data/kaggle_train.zip
+data/
 .ipynb_checkpoints/
+*.zip
 *.joblib
 *.wav
 .envrc

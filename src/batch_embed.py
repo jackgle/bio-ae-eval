@@ -58,7 +58,7 @@ def rel_from(file_path: Path, start_dir: Path) -> str:
 
 # ----------------------------- core -----------------------------
 
-def run(audio_dirs: List[Path], models: List[str], out_root: Path, recursive: bool) -> None:
+def run(audio_dirs: List[Path], models: List[str], out_root: Path) -> None:
     out_root.mkdir(parents=True, exist_ok=True)
 
     for model in models:
@@ -72,7 +72,6 @@ def run(audio_dirs: List[Path], models: List[str], out_root: Path, recursive: bo
                 check_if_combination_exists=False,
                 model_name=model,
                 testing=False,
-                recursively=recursive,
             )
 
             files = list(loader.files)
@@ -120,7 +119,6 @@ def parse_args() -> argparse.Namespace:
 
     p.add_argument("--model", action="append", required=True, help="model name; repeat for multiple")
     p.add_argument("--out-root", type=Path, required=True, help="output root for embeddings")
-    p.add_argument("--recursive", action="store_true", help="recurse within each audio dir")
     return p.parse_args()
 
 
@@ -134,7 +132,7 @@ def main() -> None:
     else:
         audio_dirs = args.audio_dir
 
-    run(audio_dirs=audio_dirs, models=args.model, out_root=args.out_root, recursive=args.recursive)
+    run(audio_dirs=audio_dirs, models=args.model, out_root=args.out_root)
 
 
 if __name__ == "__main__":
