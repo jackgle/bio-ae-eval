@@ -3,21 +3,21 @@ set -euo pipefail
 
 source config.env
 
-# step 1: extract TP clips
-python src/clip_extractor.py \
-  --input-root "$AUDIO_SOURCE_ROOT" \
-  --out-root "$CLIPS_OUT" \
-  --csv "${TP_CSV}:tp" \
-  --seconds "$CLIP_SECONDS" \
-  --pad "$CLIP_PAD"
+# # step 1: extract TP clips
+# python src/clip_extractor.py \
+#   --input-root "$AUDIO_SOURCE_ROOT" \
+#   --out-root "$CLIPS_OUT" \
+#   --csv "${TP_CSV}:tp" \
+#   --seconds "$CLIP_SECONDS" \
+#   --pad "$CLIP_PAD"
 
-# step 2: extract FP clips
-python src/clip_extractor.py \
-  --input-root "$AUDIO_SOURCE_ROOT" \
-  --out-root "$CLIPS_OUT" \
-  --csv "${FP_CSV}:fp" \
-  --seconds "$CLIP_SECONDS" \
-  --pad "$CLIP_PAD"
+# # step 2: extract FP clips
+# python src/clip_extractor.py \
+#   --input-root "$AUDIO_SOURCE_ROOT" \
+#   --out-root "$CLIPS_OUT" \
+#   --csv "${FP_CSV}:fp" \
+#   --seconds "$CLIP_SECONDS" \
+#   --pad "$CLIP_PAD"
 
 # step 3: generate embeddings inside bacpipe root
 for MODEL in "${MODELS[@]}"; do

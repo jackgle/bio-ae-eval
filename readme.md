@@ -2,14 +2,13 @@
 # Embeddings Pipeline
 This repository contains a small audio-processing pipeline for:
 1. Extracting fixed-length audio clips from long recordings based on annotation CSVs
-2. Generating embeddings for each clip using models from the `bacpipe` repo
+2. Generating embeddings for each clip using models from the [bacpipe](https://github.com/bioacoustic-ai/bacpipe/tree/main) repo
 3. Evaluating how well embeddings separate classes (per-class, micro, macro AUROC; optional AP)
-4. Currently this code is prepared to use the training data from the RFCx Species Audio Detection Challenge: https://www.kaggle.com/c/rfcx-species-audio-detection/data. This data contains TP and FP examples for each class, where FP detections are derived from a classical DSP detection algorithm, and essentially represent "hard negatives". This makes the evaluation more robust than the standard positive-classification approach. 
-5. To do: evaluate on long-form PAM data (https://github.com/jackgle/open-bioacoustic-benchmarks).
+4. Currently this code is prepared to use the training data from the [RFCx Species Audio Detection Challenge](https://www.kaggle.com/c/rfcx-species-audio-detection/data). This data contains TP and FP examples for each class, where FP detections are derived from a classical DSP detection algorithm, and essentially represent "hard negatives". This makes the evaluation more robust than the standard positive-classification approach. 
+5. To do: evaluate on [PAM data benchmarks](https://github.com/jackgle/open-bioacoustic-benchmarks).
 
 ---
 ## Setup 
-
 1. `./setup.sh`
 2. Copy `config.env.example` to `config.env` and edit as necessary
 
@@ -19,11 +18,11 @@ This repository contains a small audio-processing pipeline for:
 	- See the Python scripts called in this function for more modularity
 
 This will:
-3. Extract TP and FP clips into `data/audio/clips/tp/` and `.../fp/`
-4. Run each model listed in `MODELS` in `config.env` to produce embeddings
+3. Extract TP and FP clips into `data/audio/clips/tp/` and `.../fp/` (see explanation above)
+4. Run each model listed in `MODELS` in `config.env` to produce embeddings (see available models in [bacpipe](https://github.com/bioacoustic-ai/bacpipe/tree/main))
 5. Evaluate the embeddings and save results to `RESULTS_CSV`
 
 ## Notes
 - `BACPIPE_ROOT` in the config path must point to the bacpipe repo root. The repo is downloaded during setup.
-- To run some models, weights will need to be added to the `bacpipe/model_checkpoints` in the bacpipe repo. See https://github.com/bioacoustic-ai/bacpipe/tree/main 
+- To run some models, folders and weights will need to be added to `bacpipe/model_checkpoints` in the bacpipe repo (see [here](https://github.com/bioacoustic-ai/bacpipe?tab=readme-ov-file#available-models)).
 - Some `.flac` files require `tensorflow-io` — ensure `tensorflow` and `tensorflow-io` versions match
