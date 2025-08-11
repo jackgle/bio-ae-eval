@@ -6,6 +6,7 @@ artifacts/embeddings/
 data/audio/source/
 data/audio/clips/
 data/kaggle_train.zip
+.ipynb_checkpoints/
 *.joblib
 *.wav
 .envrc
