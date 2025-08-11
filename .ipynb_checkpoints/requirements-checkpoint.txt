@@ -1,2 +1,0 @@
-tensorflow-io==0.35.*
-soundfile
