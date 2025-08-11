@@ -1,0 +1,12 @@
+archive/
+bacpipe/
+venv/
+config.env
+artifacts/embeddings/
+data/audio/source/
+data/audio/clips/
+data/kaggle_train.zip
+*.joblib
+*.wav
+.envrc
+
