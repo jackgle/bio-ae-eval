@@ -21,7 +21,7 @@ This repository contains a small audio-processing pipeline for:
 
 This will:
 3. Extract TP and FP clips into `data/audio/clips/tp/` and `.../fp/` (see explanation above)
-4. Run each model listed in `MODELS` in `config.env` to produce embeddings (see available models in [bacpipe](https://github.com/bioacoustic-ai/bacpipe/tree/main))
+4. Run each model listed in `MODELS` in `config.env` to produce embeddings (see available models in [bacpipe](https://github.com/bioacoustic-ai/bacpipe/tree/main?tab=readme-ov-file#available-models))
 5. Evaluate the embeddings and save results to `RESULTS_CSV`
 
 ## Notes

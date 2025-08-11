@@ -27,7 +27,6 @@ for MODEL in "${MODELS[@]}"; do
       --audio-root "$CLIPS_OUT" \
       --model "$MODEL" \
       --out-root "$EMBEDDINGS_OUT" \
-      $( $RECURSIVE && echo "--recursive" )
   )
 done
 
