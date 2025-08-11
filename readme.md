@@ -4,7 +4,7 @@ This repository contains a small audio-processing pipeline for:
 1. Extracting fixed-length audio clips from long recordings based on annotation CSVs
 2. Generating embeddings for each clip using models from the `bacpipe` repo
 3. Evaluating how well embeddings separate classes (per-class, micro, macro AUROC; optional AP)
-4. Currently this code is prepared to use the training data from the RFCx Species Audio Detection Challenge: https://www.kaggle.com/c/rfcx-species-audio-detection/data. This data contains TP and FP examples for each class, where FP's detections are derived from a classical DSP detection algorithm, and essentially represent "hard negatives". This makes the evaluation more robust than standard positive-classification. 
+4. Currently this code is prepared to use the training data from the RFCx Species Audio Detection Challenge: https://www.kaggle.com/c/rfcx-species-audio-detection/data. This data contains TP and FP examples for each class, where FP detections are derived from a classical DSP detection algorithm, and essentially represent "hard negatives". This makes the evaluation more robust than the standard positive-classification approach. 
 5. To do: evaluate on long-form PAM data (https://github.com/jackgle/open-bioacoustic-benchmarks).
 
 ---
