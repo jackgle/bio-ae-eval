@@ -4,9 +4,10 @@ set -Eeuo pipefail
 # config (override with env vars if you want)
 PY_BOOT_ENV="${PY_BOOT_ENV:-py311}"                     # conda env with python 3.11
 ENV_DIR="${ENV_DIR:-$PWD/venv}"                         # venv target
-REPO_URL="${REPO_URL:-https://github.com/bioacoustic-ai/bacpipe.git}"
+REPO_URL="${REPO_URL:-https://github.com/jackgle/bacpipe}"
+REPO_BRANCH="package-relative-paths"
 REPO_DIR="${REPO_DIR:-$PWD/bacpipe}"
-KERNEL_NAME="${KERNEL_NAME:-bioacoustic-embedding-eval}"
+KERNEL_NAME="${KERNEL_NAME:-bacpipe}"
 KERNEL_LABEL="${KERNEL_LABEL:-Python ($KERNEL_NAME)}"
 
 say() { printf '\n>>> %s\n' "$*"; }
@@ -41,10 +42,11 @@ fi
 
 say "clone or update bacpipe repo"
 if [ ! -d "$REPO_DIR/.git" ]; then
-  git clone "$REPO_URL" "$REPO_DIR"
+  git clone -b "$REPO_BRANCH" "$REPO_URL" "$REPO_DIR"
 else
   git -C "$REPO_DIR" fetch --all --prune
   git -C "$REPO_DIR" pull --ff-only || true
+  git -C "$REPO_DIR" checkout "$REPO_BRANCH"
 fi
 cd "$REPO_DIR"
 

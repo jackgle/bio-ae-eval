@@ -4,6 +4,7 @@ venv/
 config.env
 artifacts/embeddings/
 data/
+**/data/
 .ipynb_checkpoints/
 *.zip
 *.joblib
